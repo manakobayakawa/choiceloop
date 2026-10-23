@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:choiceloop:workspace:0.1",
+  "title": "ChoiceLoop provisional workspace",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adapter_version",
+    "experiment",
+    "scenarios",
+    "evidence",
+    "diagnoses",
+    "interventions",
+    "approvals",
+    "observations",
+    "jobs",
+    "comparisons",
+    "audit",
+    "imports",
+    "quarantine",
+    "legacy",
+    "source_documents"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "choiceloop-workspace-0.1"
+    },
+    "adapter_version": {
+      "const": "parallel-pack-v2/0.1"
+    },
+    "experiment": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "stage",
+        "plan",
+        "limits"
+      ],
+      "properties": {
+        "stage": {
+          "enum": [
+            "SETUP",
+            "BASELINE",
+            "DIAGNOSIS",
+            "DRAFT",
+            "AWAITING_APPROVAL",
+            "CONTROLLED_RETEST",
+            "COMPARISON"
+          ]
+        },
+        "plan": {
+          "type": "object",
+          "required": [
+            "plan_version",
+            "development_ids",
+            "validation_ids",
+            "frozen_at",
+            "hash"
+          ]
+        },
+        "limits": {
+          "type": "object",
+          "required": [
+            "max_scenarios",
+            "max_calls",
+            "confirmed"
+          ]
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "required": [
+          "persona_id",
+          "search_query",
+          "persona_is_synthetic"
+        ]
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "observation.schema.json"
+      }
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "pending"
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "diagnoses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "interventions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "audit": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "quarantine": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

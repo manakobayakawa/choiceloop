@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:choiceloop:backup:0.1",
+  "title": "ChoiceLoop JSON backup",
+  "type": "object",
+  "required": [
+    "format",
+    "exported_at",
+    "revision",
+    "adapter_version",
+    "state"
+  ],
+  "properties": {
+    "format": {
+      "const": "choiceloop-backup-0.1"
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "adapter_version": {
+      "const": "parallel-pack-v2/0.1"
+    },
+    "state": {
+      "$ref": "workspace.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

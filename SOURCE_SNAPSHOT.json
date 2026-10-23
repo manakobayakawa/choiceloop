@@ -1,0 +1,10 @@
+{
+  "source_commit": "329807e62b4c8fe9515e3d474b56c07b7601c0b0",
+  "saved_site_version": 1,
+  "packaging_changes": [
+    "README replaced for GitHub; original retained in docs/ORIGINAL_SITE_README.md",
+    "Japanese upload guide and GitHub About copy added"
+  ],
+  "application_code_changed": false,
+  "automated_tests_passed": 71
+}

@@ -1,0 +1,514 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:choiceloop:observation:parallel-pack-0.1",
+  "title": "ChoiceLoop provisional observation import",
+  "description": "Preserves the supplied 2.0 record shape; additional import rules are enforced by lib/domain.mjs. This is not the missing integration contract. Unknown provenance fields are retained. Source audits belong in evidence, not observations.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "persona_id",
+    "plan_version",
+    "phase",
+    "mode",
+    "repeat_index",
+    "status",
+    "tested_at_iso8601",
+    "query_exact",
+    "query_sha256",
+    "web_search_used",
+    "source_urls",
+    "restaurants_in_display_order",
+    "athena_text_mentioned",
+    "athena_recommended",
+    "athena_display_position",
+    "explicit_preference_ranking",
+    "athena_preference_rank",
+    "shortlist_simulated",
+    "choice_simulated"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "choiceloop-observation-2.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "persona_id": {
+      "type": "string",
+      "pattern": "^P[0-9]{3}$"
+    },
+    "plan_version": {
+      "const": "parallel-v2"
+    },
+    "phase": {
+      "enum": [
+        "baseline",
+        "retest"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "LIVE_AI_SEARCH",
+        "CONTROLLED_SIMULATION",
+        "BOOKING_PATH_CHECK",
+        "ILLUSTRATIVE_SAMPLE"
+      ]
+    },
+    "repeat_index": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "attempt_index": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "namespace": {
+      "enum": [
+        "production",
+        "test",
+        "fixture"
+      ]
+    },
+    "status": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "blocked",
+        "cancelled"
+      ]
+    },
+    "tested_at_iso8601": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "platform": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_label_status": {
+      "type": "string"
+    },
+    "query_exact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "web_search_used": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "raw_response": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_response_file": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "screenshot_filename": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^https?://"
+      }
+    },
+    "restaurants_in_display_order": {
+      "type": "array"
+    },
+    "shortlist_simulated": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "choice_simulated": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "booking_path_status": {
+      "type": "string"
+    },
+    "booking_evidence": {},
+    "human_reviewed": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "error": {
+      "type": [
+        "string",
+        "object",
+        "null"
+      ]
+    },
+    "settings_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session_protocol_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "intervention_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "intervention_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_response_attachment_id": {
+      "type": "string"
+    },
+    "screenshot_attachment_id": {
+      "type": "string"
+    },
+    "session": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "new_chat": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "unpersonalized": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "outside_project": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "plugin_attached": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "precise_location_enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "controls": {
+      "type": "object",
+      "required": [
+        "rubric_hash",
+        "candidate_set_hash",
+        "evidence_hash",
+        "settings_hash",
+        "context_protocol_hash",
+        "unchanged_controls_hash"
+      ],
+      "properties": {
+        "rubric_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_set_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "settings_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_protocol_hash": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unchanged_controls_hash": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "athena_text_mentioned": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "athena_recommended": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "explicit_preference_ranking": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "athena_display_position": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "athena_preference_rank": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "choice_status": {
+      "enum": [
+        "chosen",
+        "abstained",
+        "unknown"
+      ]
+    },
+    "abstention_reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "succeeded"
+          },
+          "mode": {
+            "const": "CONTROLLED_SIMULATION"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "controls",
+          "provider",
+          "product",
+          "raw_response"
+        ],
+        "properties": {
+          "athena_text_mentioned": {
+            "type": "null"
+          },
+          "athena_recommended": {
+            "type": "null"
+          },
+          "athena_display_position": {
+            "type": "null"
+          },
+          "explicit_preference_ranking": {
+            "type": "null"
+          },
+          "athena_preference_rank": {
+            "type": "null"
+          },
+          "web_search_used": {
+            "type": "null"
+          },
+          "raw_response": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "succeeded"
+          },
+          "mode": {
+            "const": "LIVE_AI_SEARCH"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "session",
+          "platform",
+          "raw_response"
+        ],
+        "properties": {
+          "session": {
+            "type": "object",
+            "required": [
+              "new_chat",
+              "unpersonalized",
+              "outside_project",
+              "plugin_attached"
+            ],
+            "properties": {
+              "new_chat": {
+                "const": true
+              },
+              "unpersonalized": {
+                "const": true
+              },
+              "outside_project": {
+                "const": true
+              },
+              "plugin_attached": {
+                "const": false
+              }
+            }
+          },
+          "raw_response": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shortlist_simulated": {
+            "type": "null"
+          },
+          "choice_simulated": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "BOOKING_PATH_CHECK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "athena_text_mentioned": {
+            "type": "null"
+          },
+          "athena_recommended": {
+            "type": "null"
+          },
+          "athena_display_position": {
+            "type": "null"
+          },
+          "explicit_preference_ranking": {
+            "type": "null"
+          },
+          "athena_preference_rank": {
+            "type": "null"
+          },
+          "shortlist_simulated": {
+            "type": "null"
+          },
+          "choice_simulated": {
+            "type": "null"
+          },
+          "web_search_used": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "failed",
+              "blocked",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "athena_text_mentioned": {
+            "type": "null"
+          },
+          "athena_recommended": {
+            "type": "null"
+          },
+          "athena_display_position": {
+            "type": "null"
+          },
+          "explicit_preference_ranking": {
+            "type": "null"
+          },
+          "athena_preference_rank": {
+            "type": "null"
+          },
+          "shortlist_simulated": {
+            "type": "null"
+          },
+          "choice_simulated": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}
