@@ -1,0 +1,125 @@
+ChoiceLoop
+An Autonomous AI Growth Agent for the Age of AI-Driven Decisions
+
+The Big Idea
+
+Don't just optimize for being found. Optimize for being chosen.
+
+Traditional AI search optimization tools focus primarily on visibility: whether a business appears
+in AI-generated recommendations and how highly it ranks.
+
+But being recommended doesn't necessarily mean being chosen.
+
+What if, instead of simply tracking search rankings, we could simulate how different customers
+discover, compare, evaluate, and ultimately choose a restaurant?
+
+ChoiceLoop is an AI-powered growth system that simulates diverse customer decision journeys,
+identifies why a business loses potential customers, generates targeted improvements, and
+tests whether those improvements make a difference.
+
+Rather than treating AI visibility as a static ranking problem, we approach it as a dynamic
+customer experience problem.
+
+How It Works: Five Agents, One Continuous Loop
+
+01. Persona Architect — Generate Customer Scenarios
+
+Create a diverse set of simulated customers, including tourists, locals, couples, families, and
+business travelers.
+
+Each scenario combines factors such as location, budget, dining preferences, occasion, and
+specific constraints.
+
+The goal isn't simply to generate 100 personalities, but to explore a wide range of realistic
+decision-making situations.
+
+02. Customer Journey Simulator — Recreate the Decision Process
+
+Each simulated customer moves through four stages:
+
+   ●​   Discovery: Which restaurants does the AI recommend?
+   ●​   Consideration: Which options make the shortlist?
+   ●​   Decision: Which restaurant is selected, and why?
+   ●​   Booking: Can the customer reach a viable reservation path?
+The system records recommendations, comparisons, decisions, and potential drop-off points
+without making actual reservations.
+
+03. Diagnostic Analyst — Identify Why Customers Are Lost
+
+Analyze the collected journeys to uncover specific weaknesses.
+
+For example:
+
+   ●​ Not discovered → AI search visibility problem
+   ●​ Discovered but not selected → Missing information or weaker competitive positioning
+   ●​ Selected but unable to proceed → Booking experience or UX problem
+
+The agent compares the target restaurant with real competitors and uses verifiable public
+information to identify evidence-based opportunities for improvement.
+
+04. Experience Optimizer — Generate Targeted Solutions
+
+Based on the diagnosed problems, the system generates practical improvements, such as
+website copy, FAQs, menu descriptions, structured data, or recommendations for improving the
+booking experience.
+
+Proposed changes go through a human approval step before publication or implementation.
+
+05. Measurement & Validation — Test, Learn, Repeat
+
+The system reruns the same scenarios under controlled conditions and compares the results
+before and after the proposed improvements.
+
+If the results don't improve, the system returns to diagnosis and generates a revised solution.
+
+This creates a continuous feedback loop rather than a one-time optimization report.
+
+What Makes It Different?
+
+Traditional tools measure how AI sees a business. ChoiceLoop investigates why a
+customer chooses—or rejects—it.
+
+Our approach goes beyond search visibility to understand where and why potential customers
+are lost throughout the decision journey.
+
+Instead of producing generic SEO recommendations, ChoiceLoop connects specific customer
+segments, decision barriers, and actionable improvements.
+
+Its central innovation is a repeatable system for diagnosing and testing the customer
+experience.
+Hackathon MVP
+
+We'll build the prototype around Café Athena, a Mediterranean restaurant in Pacific Beach, San
+Diego.
+
+The MVP will include:
+
+   ●​   20–30 diverse customer scenarios, with a framework that can scale to 100+
+   ●​   Real AI search observations and competitor analysis
+   ●​   Customer journey simulations and decision logs
+   ●​   Evidence-based identification of conversion barriers
+   ●​   Automatically generated improvement assets
+   ●​   A before-and-after comparison dashboard
+
+To maintain credibility, we'll distinguish between two types of evidence:
+
+Live AI Search: Measures actual changes in AI search mentions and rankings.
+
+Controlled Simulation: Tests how proposed improvements influence simulated customer
+decisions under comparable conditions.
+
+Simulated improvements will be presented as experimental findings, not proof of real-world
+ranking or revenue growth.
+
+Our Vision
+
+As AI increasingly influences where people eat, shop, and spend, businesses need AI
+that understands how those decisions are made.
+
+ChoiceLoop aims to provide that intelligence.
+
+We're not just building an AI search optimization tool.
+
+We're building an AI system that helps businesses understand why they lose customers,
+improve the experience, and continuously test how to become the better choice.
+
